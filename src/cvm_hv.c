@@ -1,3 +1,4 @@
+#include <errno.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -13,7 +14,8 @@
 
 void kbox_main();
 
-#define FAKE_ROOT "/data/data/com.termux/files/home/kbox_fs"
+static const char* fake_root(void) { static char p[512]; if (!p[0]) { const char* h = getenv("HOME"); snprintf(p, sizeof(p), "%s/kbox_fs", h ? h : "."); } return p; }
+#define FAKE_ROOT fake_root()
 
 // --- Stage-1 PIE state (kernel-side shell resume + process lock) ---
 static jmp_buf        shell_resume;
