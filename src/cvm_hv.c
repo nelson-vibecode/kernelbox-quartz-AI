@@ -152,6 +152,7 @@ long cvm_trap_bus(int mode, uint64_t num, void* req) {
             }
             case HVC_CHROOT: {
                 const char* path = (const char*)req;
+                mkdir(FAKE_ROOT, 0755);  // create fake root if missing
                 printf("[CVMpipe] Fake chroot initialized at %s\n", path);
                 return 0;
             }
