@@ -160,7 +160,7 @@ long cvm_trap_bus(int mode, uint64_t num, void* req) {
                 printf("[CVMpipe] Mounted %s\n", path);
                 return 0;
             }
-            case HVC_LIST_DIR: {
+            case HVC_LIST_DIR: { //Something's wrong here. could this be the isse?? - Finn
                 const char* path = (const char*)req;
                 char full_path[512];
                 if (strcmp(path, "/") == 0) snprintf(full_path, sizeof(full_path), "%s", FAKE_ROOT);
