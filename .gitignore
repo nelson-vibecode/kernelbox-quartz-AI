@@ -38,3 +38,8 @@ dkms.conf
 # debug information files
 *.dwo
 build/
+
+# Gradle (casca do Android Code Studio)
+.gradle/
+.idea/
+local.properties

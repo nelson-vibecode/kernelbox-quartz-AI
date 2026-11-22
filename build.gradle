@@ -1,0 +1,16 @@
+// Sem plugin Android: so tarefas que chamam os scripts do projeto.
+// Uso: ./gradlew buildKernel   (compila com clang e roda o kbox_system)
+//      ./gradlew cleanKernel
+
+tasks.register('buildKernel', Exec) {
+    group = 'kernelbox'
+    description = 'Roda ./build.sh (clang) e executa o kbox_system'
+    workingDir = projectDir
+    commandLine 'bash', 'build.sh'
+}
+
+tasks.register('cleanKernel', Delete) {
+    group = 'kernelbox'
+    description = 'Apaga build/ e o binario kbox_system'
+    delete 'build', 'kbox_system'
+}

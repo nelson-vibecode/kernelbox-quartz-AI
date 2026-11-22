@@ -1,0 +1,4 @@
+// Casca minima de Gradle: serve so para o Android Code Studio / AndroidIDE
+// reconhecer a pasta como projeto (aparecer na lista e abrir no editor).
+// O codigo e o build reais continuam sendo C + build.sh.
+rootProject.name = 'kernelbox-quartz'
